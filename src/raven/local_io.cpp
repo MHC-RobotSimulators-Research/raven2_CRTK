@@ -520,16 +520,16 @@ void setSurgeonMode(int pedalstate) {
 ///
 /// PUBLISH ROS DATA
 ///
-#include <raven_2/raven_state.h>
-#include <raven_2/raven_automove.h>
+#include <raven_2_crtk/raven_state.h>
+#include <raven_2_crtk/raven_automove.h>
 
 #include "crtk_io.h"
 
 void publish_joints(robot_device *);
-void autoincrCallback(raven_2::raven_automove);
+void autoincrCallback(raven_2_crtk::raven_automove);
 
 
-using namespace raven_2;
+using namespace raven_2_crtk;
 
 
 /**
@@ -693,7 +693,7 @@ void publish_crtk(robot_device *device0){
  * \ingroup ROS
  *
  */
-void autoincrCallback(raven_2::raven_automove msg) {
+void autoincrCallback(raven_2_crtk::raven_automove msg) {
   tf::Transform in_incr[2];
   tf::transformMsgToTF(msg.tf_incr[0], in_incr[0]);
   tf::transformMsgToTF(msg.tf_incr[1], in_incr[1]);
