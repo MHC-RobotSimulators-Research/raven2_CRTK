@@ -190,13 +190,13 @@ char is_type_valid(CRTK_motion_level, CRTK_motion_type);
 
 static inline void tf_to_pose(tf::Transform& tf_in, tf::Pose& pose_out) {
  pose_out.setOrigin(tf_in.getOrigin());
- pose_out.setRotation(tf_in.getRotation());
+ pose_out.setRotation(tf_in.getRotation().normalized());
 }
 
 
 static inline void pose_to_tf(tf::Pose& pose_in, tf::Transform& tf_out) {
  tf_out.setOrigin(pose_in.getOrigin());
- tf_out.setRotation(pose_in.getRotation());
+ tf_out.setRotation(pose_in.getRotation().normalized());
 }
 
 #endif

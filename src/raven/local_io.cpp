@@ -965,14 +965,14 @@ void publish_crtk_measured_js(robot_device *dev) {
   DOF *_joint = NULL;
   int i, j;
   while (loop_over_7_joints(dev, _mech, _joint, i, j)) {
-    if (_mech->name == green) {
+    if (_mech->name == gold) {
 
         msg1.position.push_back(_joint->jpos);
         msg1.velocity.push_back(_joint->jvel);
         msg1.effort.push_back(_joint->tau);
         msg1.name.push_back(gold_names[j]);
     }
-    else if (_mech->name == gold) {
+    else if (_mech->name == green) {
 
         msg2.position.push_back(_joint->jpos);
         msg2.velocity.push_back(_joint->jvel);
@@ -1022,8 +1022,8 @@ void publish_crtk_measured_cp(robot_device *dev) {
 
   tf::poseTFToMsg(pose1,msg1.pose);
   tf::poseTFToMsg(pose2,msg2.pose);
-  pub_crtk_measured_cp_gold.publish(msg2);
-  pub_crtk_measured_cp_green.publish(msg1);
+  pub_crtk_measured_cp_gold.publish(msg1);
+  pub_crtk_measured_cp_green.publish(msg2);
 }
 
 void publish_crtk_measured_cv(robot_device *dev) {
