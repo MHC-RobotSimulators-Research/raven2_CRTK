@@ -37,7 +37,7 @@
 //#define KIST
 #define JOINT_ENCODERS 0  // 1 indicates that there is a USB board for joint encoders
                           // 0 if no joint encoders
-#define EXTRA_ARMS 1  // 1 indicates that there are more than 2 arms
+#define EXTRA_ARMS 0  // 1 indicates that there are more than 2 arms
                       // 0 if 2 or fewer arms
 
 //~~~~~~~~~ tool adapter definition ~~~~~~~~~~~~~~~~
