@@ -639,9 +639,9 @@ int init_ravenstate_publishing(robot_device *dev, ros::NodeHandle &n) {
                                              ,&crtk_motion_api_gold_grasp);
 
 
-  pub_crtk_state              = n.advertise<crtk_msgs::operating_state>("operating_state", 1);
-  pub_crtk_state_arm1         = n.advertise<crtk_msgs::operating_state>("/arm1/operating_state", 1);
-  pub_crtk_state_arm2         = n.advertise<crtk_msgs::operating_state>("/arm2/operating_state", 1);
+  pub_crtk_state              = n.advertise<crtk_msgs::OperatingState>("operating_state", 1);
+  pub_crtk_state_arm1         = n.advertise<crtk_msgs::OperatingState>("/arm1/operating_state", 1);
+  pub_crtk_state_arm2         = n.advertise<crtk_msgs::OperatingState>("/arm2/operating_state", 1);
   pub_crtk_measured_js_gold   = n.advertise<sensor_msgs::JointState>("arm1/measured_js", 1);
   pub_crtk_measured_js_green  = n.advertise<sensor_msgs::JointState>("arm2/measured_js", 1);
   pub_crtk_measured_cp_gold   = n.advertise<geometry_msgs::PoseStamped>("arm1/measured_cp", 1);
@@ -861,7 +861,7 @@ void publish_ravenstate_ros(robot_device *dev, param_pass *currParams) {
  * @ingroup    CRTK
  */
 void publish_crtk_state(robot_device *dev) {
-  static crtk_msgs::operating_state msg_state;
+  static crtk_msgs::OperatingState msg_state;
 
   msg_state.state = dev->crtk_state.get_state_string();
   msg_state.is_homed = dev->crtk_state.get_homed();
@@ -884,7 +884,7 @@ void publish_crtk_state(robot_device *dev) {
  * @ingroup    CRTK
  */
 void publish_crtk_state_arms(robot_device *dev) {
-  static crtk_msgs::operating_state msg_state;
+  static crtk_msgs::OperatingState msg_state;
 
   msg_state.state = dev->crtk_state.get_state_string();
   msg_state.is_homed = dev->crtk_state.get_homed();
