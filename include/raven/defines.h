@@ -31,6 +31,7 @@
 #include <cmath>
 
 #define RAVEN_MODULE_VERSION RAVEN_II_RELEASE_18_05
+#define UBUNTU_20  // used to switch between methods of getting keyboard inputs in getkey() in console_process.cpp
 
 #define SURGICAL_ROBOT 1
 #define RAVEN_II 1
